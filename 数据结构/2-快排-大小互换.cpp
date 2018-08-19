@@ -1,47 +1,40 @@
 #include<iostream>
+#include<stack>
 using namespace std;
 
 int partition(int arr[], int start_index, int end_index) {
-
-	// 坑的位置，初始等于pivot的位置
-	int index = start_index;
-	//第一个元素为基准元素
+	//第一个元素为基准元素pivot
 	int pivot = arr[start_index];
 	int left = start_index;
 	int right = end_index;
-
 	while (left < right) {
-		while (left < right) {
-			if (pivot > arr[right]) {
-				arr[left] = arr[right];
-				left++;
-				break;
-			}
-			//基准元素小于右边的比较的元素
+		//
+		while (left < right&&arr[right] >pivot) {
 			right--;
 		}
-		while (left < right) {
-			if (arr[left] > pivot) {
-				arr[right] = arr[left];
-				right--;
-				break;
-			}
+		//必须是<=,这样才能保证pivot在最后与指针重合点交换
+		while (left < right&&arr[left] <= pivot) {
 			left++;
 		}
-
+		//交换left和right指向的元素
+		if (left < right) {
+			int temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+		}
 	}
-	index = left;
-	arr[index] = pivot;
-	return index;
+	//pivot和指针重合点交换,指针重合点一定<=pivot
+	arr[start_index] = arr[right];
+	arr[right] = pivot;
+	return right;
 }
-
 void quick_sort(int arr[], int start_index, int end_index) {
 	if (start_index >= end_index) {
 		return;
 	}
-	int  mid_index = partition(arr, start_index, end_index);
+	int mid_index = partition(arr, start_index, end_index);
 	quick_sort(arr, start_index, mid_index - 1);
-	quick_sort(arr, mid_index + 1, end_index);	
+	quick_sort(arr, mid_index + 1, end_index);
 }
 //非递归快排
 void quick_sort2(int arr[], int start_index, int end_index) {
@@ -74,12 +67,11 @@ void quick_sort2(int arr[], int start_index, int end_index) {
 		}
 	}
 }
-
 int main() {
-	int arr[8] = {4,5,3,8,1,2,7,6};
-	quick_sort(arr, 0, 7);
+	int arr[8] = { 4,5,3,8,1,2,7,6 };
+	quick_sort2(arr, 0, 7);
 	for (int i = 0; i < 8; i++) {
-		cout << arr[i]<<endl;
+		cout << arr[i] << endl;
 	}
 	int end;
 	cin >> end;

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="1-快排-填坑法.cpp">
+    <ClCompile Include="2-快排-大小互换.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
