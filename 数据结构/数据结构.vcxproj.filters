@@ -13,10 +13,13 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\04-链栈和链队列">
+      <UniqueIdentifier>{ee8496b6-1816-408e-97d1-4cd2cb129b97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="2-快排-大小互换.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="2.cpp">
+      <Filter>源文件\04-链栈和链队列</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
