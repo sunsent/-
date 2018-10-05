@@ -33,6 +33,21 @@ node * turn(node * src) {
 
 	return first;
 }
+
+node * turn2(node * src) {
+	if (src == nullptr || src->next == nullptr) {
+		return src;
+	}
+	node* first = NULL;
+	node * sec = src;
+	while (sec != nullptr) {
+		node * third = sec->next;
+		sec->next = first;
+		first = sec;
+		sec = third;
+	}
+	return first;
+}
 int main() {
 	DWORD start_time = GetTickCount();
 	node * src;
@@ -54,7 +69,7 @@ int main() {
 		point = point->next;
 	}
 	cout << endl;
-	src = turn(src);
+	src = turn2(src);
 	node * point2 = src;
 	while (point2!= nullptr) {
 		cout << point2->val << " ->";

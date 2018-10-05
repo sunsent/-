@@ -18,8 +18,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="4.cpp">
-      <Filter>源文件\04-链栈和链队列</Filter>
+    <ClCompile Include="HeapSort.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
